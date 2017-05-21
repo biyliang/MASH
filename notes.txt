@@ -1,0 +1,30 @@
+Documentation in progress for:
+* UTILITIES-AQUA.R
+* PATHOGEN-PFSI-PfSI.R
+* AQUA-EL4P-Calibration.R
+* MBITES-Parameters.R
+
+Documentation done for:
+* MICRO-LANDSCAPE.R
+* PATHOGEN-PfPedigree.R
+* PATHOGEN-PFSI-SetupPfSI.R
+* UTILITIES-Pathogen.R
+
+Other to-do:
+* Write better plotPsi
+* Write PfTransmission analysis routines (UTILITIES-Pathogen.R).
+* Write kernel visualizations.
+* makeMosquitoCohort() should accept P as an argument for certain parameters, such as energyPreG
+
+Other to-do (DONE):
+* Write JSON export/import routines for PfPedigree; do not store in R env
+* Write .csv export for trackPfTransmission
+* Write plotting routines for trackAdults and trackEL4P output
+# Urgent: confirm getLambda with John before he goes to NYC.
+
+Large Scale to-do:
+* Shiny GUIs for MBITES-Basic, EL4P fitting, PfSI.
+
+Large Scale to-do (DONE):
+
+Where I Left Off:
