@@ -134,7 +134,7 @@ pre {
 
 pre, code {
   background-color: #f8f8f8;
-  color: #333;
+  color: red;
 }
 
 pre img {
@@ -143,7 +143,7 @@ pre img {
 }
 
 code a, pre a {
-  color: #375f84;
+  color: red;
 }
 
 .fl      {color: #1514b5;}
@@ -155,4 +155,3 @@ code a, pre a {
 .message { color: black;   font-weight: bolder;}
 .error   { color: orange;  font-weight: bolder;}
 .warning { color: #6A0366; font-weight: bolder;}
-
