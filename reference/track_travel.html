@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Initialize HumanPop Parameters for <code>HumanPop</code> — HumanPop.Parameters • MASH.R6</title>
+<title>Track <code>Human</code> Travel History — track_travel • MASH.R6</title>
 
 <!-- jquery -->
 <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha384-nrOSfDHtoPMzJHjVTdCopGqIqeYETSXhZDFyniQ8ZHcVy08QesyHcnOUpMpqnmWq" crossorigin="anonymous"></script>
@@ -73,68 +73,35 @@
       <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Initialize HumanPop Parameters for <code>HumanPop</code></h1>
+    <h1>Track <code>Human</code> Travel History</h1>
     </div>
 
     
-    <p>make a list of pars for <code><a href='HumanPop.html'>HumanPop</a></code></p>
+    <p>Write me! Defined in MACRO-Human-Movement.R</p>
     
 
-    <pre class="usage"><span class='fu'>HumanPop.Parameters</span>(<span class='no'>nSite</span>, <span class='kw'>demographics</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='no'>...</span>)</pre>
+    <pre class="usage"><span class='fu'>track_travel</span>(<span class='no'>tTravel</span>, <span class='no'>locationH</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a> Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
-      <th>nSite</th>
-      <td><p>number of sites (either <code><a href='FeedingSite.html'>FeedingSite</a></code> or <code>link{MacroPatch}</code>)</p></td>
+      <th>tTravel</th>
+      <td><p>time of trip</p></td>
     </tr>
     <tr>
-      <th>demographics</th>
-      <td><p>either a list or <code>NULL</code>; if <code>NULL</code> then <code><a href='sitePops.html'>sitePops</a></code> is used to generate these parameters, see that function for details on the list structure that is expected.</p></td>
-    </tr>
-    <tr>
-      <th>...</th>
-      <td><p>additional named arguments for <code><a href='sitePops.html'>sitePops</a></code></p></td>
+      <th>location</th>
+      <td><p>destination of trip</p></td>
     </tr>
     </table>
     
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>return a list <code>HumanPop_PAR</code></p>
+    <p>does stuff</p>
     
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='fu'>HumanPop.Parameters</span>(<span class='kw'>nSite</span> <span class='kw'>=</span> <span class='fl'>5</span>)</div><div class='output co'>#&gt; $nHumans
-#&gt; [1] 41
-#&gt; 
-#&gt; $tStart
-#&gt; [1] 0
-#&gt; 
-#&gt; $humanIDs
-#&gt;  [1]  1  2  3  4  5  6  7  8  9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25
-#&gt; [26] 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41
-#&gt; 
-#&gt; $homeIDs
-#&gt;  [1] 1 1 1 1 1 1 1 1 1 2 2 2 2 2 2 2 2 3 3 3 3 3 3 3 3 3 4 4 4 4 4 4 5 5 5 5 5 5
-#&gt; [39] 5 5 5
-#&gt; 
-#&gt; $bDay
-#&gt;  [1] -14421  -6225  -2604  -3436 -14264   -260  -2859  -2753  -4521 -14225
-#&gt; [11] -13352 -12644  -2069  -2340 -19096  -3878  -3937 -14532  -1595 -13021
-#&gt; [21]   -461  -6093 -15497  -8103  -4748  -5755 -11461  -7563  -1405 -14005
-#&gt; [31]  -2745  -5895 -10561  -8608  -9344 -10631  -8768   -875  -1947  -1469
-#&gt; [41]  -5392
-#&gt; 
-#&gt; $bWeight
-#&gt;  [1] 0.095713699 4.346455956 0.533443947 0.991938943 0.587068904 0.900234351
-#&gt;  [7] 0.101350057 0.513652551 0.521121069 0.964364365 1.786028221 1.176507510
-#&gt; [13] 0.771425885 0.626224050 1.975823910 0.135099666 2.474605658 0.130685188
-#&gt; [19] 0.150316922 0.241089996 0.438168718 1.352670740 0.655778431 3.997292067
-#&gt; [25] 0.097601701 1.593588690 2.709827213 0.348957088 0.844929685 1.534273094
-#&gt; [31] 1.516501345 0.473420142 0.047205864 0.280821777 0.004650806 0.312242653
-#&gt; [37] 2.300686987 2.139300961 0.236397300 1.629613976 0.101492580
-#&gt; </div></pre>
+    <pre class="examples"><div class='input'><span class='no'>self</span>$<span class='fu'>trackTravel</span>(<span class='kw'>tTravel</span> <span class='kw'>=</span> <span class='fl'>1</span>, <span class='kw'>location</span> <span class='kw'>=</span> <span class='fl'>1L</span>)</div><div class='output co'>#&gt; <span class='error'>Error in eval(expr, envir, enclos): object 'self' not found</span></div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>

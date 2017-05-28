@@ -132,6 +132,7 @@ pre {
   border: 1px solid #eee;
 }
 
+/* Code tag ---------------------------------------------------- */
 pre, code {
   background-color: #f8f8f8;
   color: red;
