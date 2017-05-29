@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Allocate ImagoQ — allocImagoQ • MASH.R6</title>
+<title>Write <code>HumanPop</code> Travel History to JSON — json_travelHistory • MASH.R6</title>
 
 <!-- jquery -->
 <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha384-nrOSfDHtoPMzJHjVTdCopGqIqeYETSXhZDFyniQ8ZHcVy08QesyHcnOUpMpqnmWq" crossorigin="anonymous"></script>
@@ -73,31 +73,31 @@
       <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Allocate ImagoQ</h1>
+    <h1>Write <code>HumanPop</code> Travel History to JSON</h1>
     </div>
 
     
-    <p>This function allocates an empty ImagoQ</p>
+    <p>Write each <code>Human</code> travel history as a .json object to a connection. Depends on <code>self$get_travelHistory()</code> defined in MACRO-Human-Movement.R</p>
     
 
-    <pre class="usage"><span class='fu'>allocImagoQ</span>(<span class='no'>N</span>)</pre>
+    <pre class="usage"><span class='fu'>json_travelHistory</span>(<span class='no'>con</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a> Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
-      <th>N</th>
-      <td><p>size of empty queue</p></td>
+      <th>con</th>
+      <td><p>a connection open for writing</p></td>
     </tr>
     </table>
     
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>empty ImagoQ</p>
+    <p>none</p>
     
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='fu'>allocImagoQ</span>(<span class='kw'>N</span><span class='kw'>=</span><span class='no'>N</span>)</div><div class='output co'>#&gt; <span class='error'>Error in integer(n): object 'N' not found</span></div></pre>
+    <pre class="examples"><div class='input'><span class='no'>HumanPop</span>$<span class='fu'>json_travelHistory</span>(<span class='kw'>con</span> <span class='kw'>=</span> <span class='fu'>file</span>(<span class='kw'>description</span> <span class='kw'>=</span> <span class='fu'>paste0</span>(<span class='no'>directory</span>, <span class='st'>"OUTPUT/humanTravel.json"</span>),<span class='kw'>open</span> <span class='kw'>=</span> <span class='st'>"wt"</span>))</div><div class='output co'>#&gt; <span class='error'>Error in eval(expr, envir, enclos): attempt to apply non-function</span></div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
