@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>MICRO Feeding Site Class Definition — FeedingSite • MASH.R6</title>
+<title>MICRO <code>FeedingSite</code> Method: Initialize a Risk List — init_riskList • MASH.R6</title>
 
 <!-- jquery -->
 <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha384-nrOSfDHtoPMzJHjVTdCopGqIqeYETSXhZDFyniQ8ZHcVy08QesyHcnOUpMpqnmWq" crossorigin="anonymous"></script>
@@ -73,56 +73,59 @@
       <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>MICRO Feeding Site Class Definition</h1>
+    <h1>MICRO <code>FeedingSite</code> Method: Initialize a Risk List</h1>
     </div>
 
     
-    <p>This is a generic site blah blah ...</p>
+    <p>Initialize a risk list for a feeding site object. This function is a method for <code><a href='FeedingSite.html'>FeedingSite</a></code>.</p>
     
 
-    <pre class="usage"><span class='no'>FeedingSite</span></pre>
-        
-    <h2 class="hasAnchor" id="format"><a class="anchor" href="#format"></a>Format</h2>
-
-    <p>An <code>R6Class</code> generator object</p>
+    <pre class="usage"><span class='fu'>init_riskList</span>(<span class='kw'>maxH</span> <span class='kw'>=</span> <span class='fl'>20L</span>, <span class='kw'>zooW</span> <span class='kw'>=</span> <span class='fu'>rgamma</span>(<span class='fl'>1</span>, <span class='fl'>1</span>, <span class='fl'>1</span>))</pre>
     
-    <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
+    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a> Arguments</h2>
+    <table class="ref-arguments">
+    <colgroup><col class="name" /><col class="desc" /></colgroup>
+    <tr>
+      <th>maxH</th>
+      <td><p>number of human slots to preallocate this site's risk list</p></td>
+    </tr>
+    <tr>
+      <th>zooW</th>
+      <td><p>biting weight on livestock at this site's risk list</p></td>
+    </tr>
+    </table>
+    
+    <h2 class="hasAnchor" id="structure"><a class="anchor" href="#structure"></a>Structure</h2>
 
+    
     <ul>
-<li><p>some deets</p></li>
+<li><p>maxH: maximum number of humans in this risk list (memory allocation)</p></li>
+<li><p>N: current number of humans in this risk list</p></li>
+<li><p>who: index of who is at risk (myID value of the <code><a href='Human.html'>Human</a></code> objects at risk at this site)</p></li>
+<li><p>pTm: person time at risk</p></li>
+<li><p>w: biting weight on hosts at risk</p></li>
+<li><p>nO: number of non-human hosts</p></li>
+<li><p>other: (general list structure for adding non-human hosts)</p><ul>
+<li><p>zoo:</p><ul>
+<li><p>w: biting weight on livestock</p></li>
+<li><p>typeID: -1 corresponds to livestock host id</p></li>
+</ul></li>
+</ul></li>
 </ul>
     
-    <h2 class="hasAnchor" id="methods"><a class="anchor" href="#methods"></a>Methods</h2>
 
-    
-    <ul>
-<li><p>a method</p></li>
-<li><p>another method</p></li>
-<li><p>even more methods</p></li>
-<li><p><code><a href='init_riskList.html'>init_riskList</a></code>: initialize a risk list for this site.</p></li>
-</ul>
-    
-    <h2 class="hasAnchor" id="active-bindings"><a class="anchor" href="#active-bindings"></a>Active Bindings</h2>
-
-    
-    <dl class='dl-horizontal'>
-<dt><code>cats</code></dt><dd><p>...</p></dd>
-</dl>
-    
-
+    <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
+    <pre class="examples"><div class='input'><span class='fu'>some_function</span>()</div><div class='output co'>#&gt; <span class='error'>Error in some_function(): could not find function "some_function"</span></div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
+      <li><a href="#arguments">Arguments</a></li>
       
-      <li><a href="#format">Format</a></li>
-
-      <li><a href="#details">Details</a></li>
-
-      <li><a href="#methods">Methods</a></li>
-
-      <li><a href="#active-bindings">Active Bindings</a></li>
-          </ul>
+      <li><a href="#structure">Structure</a></li>
+      
+      <li><a href="#examples">Examples</a></li>
+    </ul>
 
   </div>
 </div>
