@@ -20,9 +20,7 @@
 #' @examples
 #' SimBite.PfSI_PARameters()
 #' @export
-SimBitePfSI.Setup <- function(
-
-){
+SimBitePfSI.Setup <- function(overwrite=TRUE){
 
     print(paste0("initializing PfSI SimBite module"))
 
@@ -32,25 +30,17 @@ SimBitePfSI.Setup <- function(
 
   # add2Q_SimBitePfSI
   Human$set(which = "public",name = "add2Q_SimBitePfSI",
-            value = function(tEvent, PAR = NULL){
-              PAR = list()
-              PAR$mosquitoPfSI = mosquitoPfSI$new(PfID = -1L, tInf = -1L, spz = 1L, damID = -1L, sireID = -1L)
-              self$addEvent2Q(event = self$event_SimBitePfSI(tEvent = tEvent, PAR = PAR))
-            }
+            value = add2Q_SimBitePfSI
   )
 
   # event_SimBitePfSI: simulated bite event
   Human$set(which = "public",name = "event_SimBitePfSI",
-            value = function(tEvent, PAR = NULL){
-              list(tEvent = tEvent, PAR = PAR, tag = "SimBitePfSI")
-            }
+            value = event_SimBitePfSI
   )
 
   # SimBitePfSI
   Human$set(which = "public",name = "SimBitePfSI",
-            value = function(tEvent, PAR){
-              self$probeHost_PfSI(tEvent, PAR$mosquitoPfSI)
-            }
+            value = SimBitePfSI
   )
 
   ###################################################################
@@ -59,33 +49,18 @@ SimBitePfSI.Setup <- function(
 
   # queueBites
   HumanPop$set(which = "public",name = "queueBites_SimBitePfSI",
-               value = function(tMax, bitingRate = 1/20){
-                 for(ixH in 1:self$nHumans){
-                   print(paste0("queueing simulated bites for human: ",ixH))
-                   tBite = 0
-                   while(tBite < tMax){
-                     tBite = tBite + rexp(n = 1,rate = bitingRate)
-                     private$pop[[ixH]]$add2Q_SimBitePfSI(tEvent = tBite)
-                   }
-                 }
-               }
+               value = queueBites_SimBitePfSI
   )
 
   # queueVaccination
   HumanPop$set(which = "public",name = "queueVaccination_SimBitePfSI",
-               value = function(tVaccine, tTreat, fracPop){
-                 for(ixH in 1:floor(fracPop*self$nHumans)){
-                   print(paste0("queueing vaccination for human: ",ixH))
-                   private$pop[[ixH]]$add2Q_pevaccinatePfSI(tEvent = tVaccine)
-                   private$pop[[ixH]]$add2Q_treatPfSI(tEvent = tTreat)
-                 }
-               }
+               value =  queueVaccination_SimBitePfSI
   )
 
   # queueBitesNegBinom_SimBitePfSI
   HumanPop$set(which = "public",name = "queueBitesNegBinom_SimBitePfSI",
                value = queueBitesNegBinom_SimBitePfSI,
-               overwrite = TRUE
+               overwrite = overwrite
   )
 
 }
@@ -95,6 +70,78 @@ SimBitePfSI.Setup <- function(
 # Parametric Biting Distributions
 #################################################################
 
+#' PfSI SimBite: Add 2Q Parameters for \code{Human}
+#'
+#' grab parameters for \code{\link{Human}}
+#'
+#' @param a parameter
+#' @return does stuff
+#' @examples
+#' some_function()
+add2Q_SimBitePfSI <- function(tEvent, PAR = NULL){
+              PAR = list()
+              PAR$mosquitoPfSI = mosquitoPfSI$new(PfID = -1L, tInf = -1L, spz = 1L, damID = -1L, sireID = -1L)
+              self$addEvent2Q(event = self$event_SimBitePfSI(tEvent = tEvent, PAR = PAR))
+                }
+
+#' PfSI SimBite: Get Event Parameters for \code{Human}
+#'
+#' grab parameters for \code{\link{Human}}
+#'
+#' @param a parameter
+#' @return does stuff
+#' @examples
+#' some_function()    
+event_SimBitePfSI <- function(tEvent, PAR = NULL){
+              list(tEvent = tEvent, PAR = PAR, tag = "SimBitePfSI")
+                }
+
+#' PfSI SimBite: Get PfSI Parameters for \code{Human}
+#'
+#' grab parameters for \code{\link{Human}}
+#'
+#' @param a parameter
+#' @return does stuff
+#' @examples
+#' some_function()   
+ SimBitePfSI <- function(tEvent, PAR){
+              self$probeHost_PfSI(tEvent, PAR$mosquitoPfSI)
+            }
+
+#' PfSI SimBite: Get Queue Bites Parameters for \code{Human}
+#'
+#' grab parameters for \code{\link{Human}}
+#'
+#' @param a parameter
+#' @return does stuff
+#' @examples
+#' some_function()   
+queueBites_SimBitePfSI <- function(tMax, bitingRate = 1/20){
+                 for(ixH in 1:self$nHumans){
+                   print(paste0("queueing simulated bites for human: ",ixH))
+                   tBite = 0
+                   while(tBite < tMax){
+                     tBite = tBite + rexp(n = 1,rate = bitingRate)
+                     private$pop[[ixH]]$add2Q_SimBitePfSI(tEvent = tBite)
+                   }
+                 }
+               }
+
+#' PfSI SimBite: Get Queue Vaccination Parameters for \code{Human}
+#'
+#' grab parameters for \code{\link{Human}}
+#'
+#' @param a parameter
+#' @return does stuff
+#' @examples
+#' some_function()   
+ queueVaccination_SimBitePfSI <-function(tVaccine, tTreat, fracPop){
+                 for(ixH in 1:floor(fracPop*self$nHumans)){
+                   print(paste0("queueing vaccination for human: ",ixH))
+                   private$pop[[ixH]]$add2Q_pevaccinatePfSI(tEvent = tVaccine)
+                   private$pop[[ixH]]$add2Q_treatPfSI(tEvent = tTreat)
+                 }
+               }
 #' PfSI SimBite \code{\link{HumanPop}} Method: Generate Negative Binomial Biting Distribution
 #'
 #' Wrapper method for \code{\link{SimBite_MeanBites}} to queue simulated bites on a human population.
